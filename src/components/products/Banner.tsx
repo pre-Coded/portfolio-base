@@ -8,6 +8,7 @@ const Banner = () => {
       <div className='flex-1 p-2 flex items-center justify-center'>
         <div className='banner-img overflow-hidden sm:h-[20rem] md:h-[25rem] lg:h-[40rem] aspect-square'>
           <Image
+            alt='bannerimg'
             src={me}
             className="object-cover h-full aspect-square"
           />

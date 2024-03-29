@@ -5,6 +5,7 @@ import LogoImg from '../../assets/images/logo.png'
 const Logo = () => {
   return (
     <Image
+      alt='logoimg'
       src={LogoImg}
       className="h-16 w-32 object-contain"
     />
