@@ -13,7 +13,6 @@ const Cards: React.FC<CardsProps> = ({ children }) => {
 
   return (
     <section 
-        ref={inViewRef}
     >
       <div>
         {
