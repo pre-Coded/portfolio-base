@@ -19,7 +19,7 @@
 .testi-img{
 	background-image: url('../assets/images/me3.jpg');
 	background-size: cover;
-	background-position: center left;
+	/* background-position: center left; */
 	background-repeat: no-repeat;
 	border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
 }

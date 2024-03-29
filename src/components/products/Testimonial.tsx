@@ -5,10 +5,11 @@ import client1 from '../../assets/images/client1.jpg'
 const Testimonial = () => {
   return (
     <div
-      className='flex flex-col md:flex-row md:space-x-2 overflow-hidden h-[100vh] bg-black/90  relative p-2'
+      className='flex flex-col md:flex-row md:space-x-2 overflow-hidden pb-[10rem] md:pb-[14rem] lg:pb-[16rem] bg-black/90  relative p-2'
     >
-      <div className='overlay absolute h-full lg:w-[60%] opacity-40 top-0 left-0 testi-img mt-2'></div>
-      <div className=' md:flex-1 p-2 flex flex-col z-0 pt-8 lg:pt-32 lg:pl-16'>
+      <div className='overlay absolute h-[70%] w-full md:h-full lg:w-[60%] opacity-40 top-0 left-0 testi-img mt-2'></div>
+
+      <div className='lg:flex-1 p-2 flex flex-col z-0 pt-8 lg:pt-32 lg:pl-16'>
         <span
           className={`text-md text-active font-medium tracking-wider`}
         >
@@ -31,7 +32,7 @@ const Testimonial = () => {
       </div>
       <div className='flex-1 pt-8 lg:pt-32 z-0'>
         <div
-          className='bg-white flex flex-col lg:w-[80%] space-y-3 p-2 rounded-md'
+          className='bg-black/40 backdrop-blur-sm flex flex-col lg:w-[80%] space-y-3 p-2 rounded-md'
         >
           <span
             className={`text-md text-active font-medium tracking-widest`}
@@ -39,7 +40,7 @@ const Testimonial = () => {
             Testimonials
           </span>
           <span
-            className={`text-2xl font-bold tracking-wider text-black`}
+            className={`text-2xl font-bold tracking-wider text-white`}
           >
             What Clients Say?
           </span>
