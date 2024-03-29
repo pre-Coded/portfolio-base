@@ -1,4 +1,6 @@
-import React, { useRef } from "react"
+"use client"
+
+import React, { useRef, useState } from "react"
 import Image from "../../../node_modules/next/image";
 import Cards from "../molecules/Cards";
 import me from '../../assets/images/me.jpg'
@@ -6,12 +8,15 @@ import weddingmakeup from '../../assets/images/weddingmakeup.jpg'
 import facemakeup from '../../assets/images/facemakeup.jpg'
 import hairstyle from '../../assets/images/hairstyle.jpg'
 import eyebrowmakeup from '../../assets/images/eyebrowmakeup.jpg'
+import { motion } from 'framer-motion'
 
 interface ServicesProps {
   children?: React.ReactNode;
 }
 
 const Services: React.FC<ServicesProps> = () => {
+  const [activeService, toggleActiveService] = useState<String | Number>()
+
   return (
     <section
       className="mt-8 w-full"
@@ -38,8 +43,32 @@ const Services: React.FC<ServicesProps> = () => {
           className={`whitespace-nowrap overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth`}
         >
           <div
-            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden "
+            id="1"
+            onPointerEnter={(e) => {
+              toggleActiveService(e.currentTarget.id)
+              console.log(e.currentTarget.id)
+            }}
+            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden relative rounded-md"
           >
+            <motion.div
+              onPointerLeave={(e) => {
+                toggleActiveService('-1')
+              }}
+              initial={{
+                height: 0,
+                opacity : 0,
+              }}
+              animate={{
+                height: activeService == 1 ? '100%' : 0,
+                opacity : activeService == 1 ? '100%' : 0,
+              }}
+              className='overlay absolute h-full w-full bottom-0 left-0 bg-black/60 flex flex-col items-center justify-center overflow-hidden'>
+              <span
+                className={`text-2xl text-white font-medium tracking-widest`}
+              >
+                Wedding MakeUp
+              </span>
+            </motion.div>
             <Cards>
               <div
                 className={`h-full w-full rounded-md border overflow-hidden`}
@@ -53,8 +82,32 @@ const Services: React.FC<ServicesProps> = () => {
             </Cards>
           </div>
           <div
-            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden"
+            id="2"
+            onPointerEnter={(e) => {
+              console.log(e.currentTarget.id)
+              toggleActiveService(e.currentTarget.id)
+            }}
+            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden relative"
           >
+            <motion.div
+              onPointerLeave={(e) => {
+                toggleActiveService('-1')
+              }}
+              initial={{
+                height: 0,
+                opacity : 0,
+              }}
+              animate={{
+                height: activeService == 2 ? '100%' : 0,
+                opacity : activeService == 2 ? '100%' : 0,
+              }}
+              className='overlay absolute h-full w-full bottom-0 left-0 bg-black/60 flex flex-col items-center justify-center overflow-hidden'>
+              <span
+                className={`text-2xl text-white font-medium tracking-widest`}
+              >
+                Face MakeUp
+              </span>
+            </motion.div>
             <Cards>
               <div
                 className={`h-full w-full rounded-md border overflow-hidden`}
@@ -68,8 +121,32 @@ const Services: React.FC<ServicesProps> = () => {
             </Cards>
           </div>
           <div
-            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden"
+            id="3"
+            onPointerEnter={(e) => {
+              console.log(e.currentTarget.id)
+              toggleActiveService(e.currentTarget.id)
+            }}
+            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden relative"
           >
+            <motion.div
+              onPointerLeave={(e) => {
+                toggleActiveService('-1')
+              }}
+              initial={{
+                height: 0,
+                opacity : 0,
+              }}
+              animate={{
+                height: activeService == 3 ? '100%' : 0,
+                opacity : activeService == 3 ? '100%' : 0,
+              }}
+              className='overlay absolute h-full w-full bottom-0 left-0 bg-black/60 flex flex-col items-center justify-center overflow-hidden'>
+              <span
+                className={`text-2xl text-white font-medium tracking-widest`}
+              >
+                Hair Style
+              </span>
+            </motion.div>
             <Cards>
               <div
                 className={`h-full w-full rounded-md border overflow-hidden`}
@@ -83,8 +160,32 @@ const Services: React.FC<ServicesProps> = () => {
             </Cards>
           </div>
           <div
-            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden"
+            id="4"
+            onPointerEnter={(e) => {
+              console.log(e.currentTarget.id)
+              toggleActiveService(e.currentTarget.id)
+            }}
+            className="inline-block h-[32rem] sm:w-full md:w-[50%] lg:w-[33%] overflow-hidden relative"
           >
+            <motion.div
+              onPointerLeave={(e) => {
+                toggleActiveService('-1')
+              }}
+              initial={{
+                height: 0,
+                opacity : 0,
+              }}
+              animate={{
+                height: activeService == 4 ? '100%' : 0,
+                opacity : activeService == 4 ? '100%' : 0,
+              }}
+              className='overlay absolute h-full w-full bottom-0 left-0 bg-black/60 flex flex-col items-center justify-center overflow-hidden'>
+              <span
+                className={`text-2xl text-white font-medium tracking-widest`}
+              >
+                Eyebrow MakeUp
+              </span>
+            </motion.div>
             <Cards>
               <div
                 className={`h-full w-full rounded-md border overflow-hidden`}
@@ -93,6 +194,7 @@ const Services: React.FC<ServicesProps> = () => {
                   alt="eyebrowmakeup"
                   src={eyebrowmakeup}
                   className="object-cover h-full w-full"
+                  loading="lazy"
                 />
               </div>
             </Cards>

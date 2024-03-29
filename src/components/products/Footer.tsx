@@ -1,5 +1,7 @@
+"use client"
 import React from 'react'
 import { FaInstagram, FaFacebook, FaTwitter, FaCopyright } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -51,12 +53,18 @@ const Footer = () => {
             placeholder='Enter Your message'
             className={`border-[1px] border-white/20 rounded-md outline-none w-full md:w-[50%] lg:w-[40%] p-2 bg-transparent text-white text-sm placeholder:text-sm`}
           />
-          <button
+          <motion.button
+            whileHover={{
+              scale : 1.1,
+            }}
+            whileTap={{
+              scale : 0.9,
+            }}
             title='Send msg'
             className='border-none outline-none h-12 w-48 rounded-full bg-[#c44953] text-white'
           >
             Send
-          </button>
+          </motion.button>
         </div>
       </div>
       <div
